@@ -13,7 +13,7 @@ def about():
 
 @app.route("/contact")
 def contact():
-    pass
+    return render_template("contact.html",title="contact",description="Contact page, build in progress!!")
 
 @app.route("/projects")
 def projects():
