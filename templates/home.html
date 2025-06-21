@@ -17,6 +17,7 @@
             color: #ffffff;
             overflow-x: hidden;
             line-height: 1.6;
+            transition: background 1s ease, color 1s ease;
         }
 
         .bg-particles {
@@ -441,6 +442,101 @@
                 transform: translateX(-50%) translateY(-5px);
             }
         }
+
+        body.light-mode {
+            background: linear-gradient(135deg, #e6e6e6 0%, #dcdcdc 50%, #cccccc 100%);
+            color: #1a1a1a;
+        }
+
+        body.light-mode nav {
+            background: rgba(240, 240, 240, 0.85);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        body.light-mode .logo {
+            background: linear-gradient(45deg, #0f4c75, #3282b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.light-mode .nav-links a {
+            color: #1a1a1a;
+        }
+
+        body.light-mode .nav-links a:hover {
+            color: #3282b8;
+        }
+
+        body.light-mode .nav-links a::after {
+            background: linear-gradient(45deg, #0f4c75, #3282b8);
+        }
+
+        body.light-mode .hero-title {
+            background: linear-gradient(45deg, #1a1a1a, #0f4c75);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.light-mode .hero-subtitle {
+            color: #3282b8;
+        }
+
+        body.light-mode .hero-description,
+        body.light-mode .contact-description,
+        body.light-mode .project-description,
+        body.light-mode .skill-description {
+            color: #2c2c2c;
+        }
+
+        body.light-mode .skill-card,
+        body.light-mode .project-card {
+            background: #f4f4f4;
+            border-color: rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        body.light-mode .skill-title,
+        body.light-mode .project-title {
+            color: #1a1a1a;
+        }
+
+        body.light-mode .tag {
+            background: rgba(15, 76, 117, 0.1);
+            color: #0f4c75;
+            border-color: rgba(15, 76, 117, 0.2);
+        }
+
+        body.light-mode .btn-primary {
+            background: linear-gradient(45deg, #3282b8, #0f4c75);
+            color: #fff;
+        }
+
+        body.light-mode .btn-secondary {
+            background: transparent;
+            color: #0f4c75;
+            border: 2px solid #3282b8;
+            }
+
+        body.light-mode .btn-secondary:hover {
+            background: rgba(15, 76, 117, 0.1);
+        }
+
+        body.light-mode .social-link {
+            background: rgba(0, 0, 0, 0.05);
+            color: #1a1a1a;
+        }
+
+        body.light-mode .social-link:hover {
+            background: linear-gradient(45deg, #0f4c75, #3282b8);
+            color: white;
+        }
+
+        body.light-mode .bg-particles {
+            display: none;
+        }
+
+
+
     </style>
 </head>
 <body>
@@ -449,13 +545,15 @@
     <nav>
         <div class="nav-container">
             <div class="logo">TKN</div>
-            <ul class="nav-links">
-                <li><a href="{{url_for("home",title="home")}}">Home</a></li>
-                <li><a href="{{url_for("about",title="about",description="This is the about us page!")}}">About</a></li>
-                <li><a href="{{url_for("projects",title="projects",description="project page, build in progress")}}">Projects</a></li>
-                <li><a href="{{url_for("contact",title="Contact",description="Contact page, build in progress!!")}}">Contact</a></li>
-            </ul>
+                <ul class="nav-links">
+                    <li><a href="{{url_for("home",title="home")}}">Home</a></li>
+                    <li><a href="{{url_for("about",title="about",description="This is the about us page!")}}">About</a></li>
+                    <li><a href="{{url_for("projects",title="projects",description="project page, build in progress")}}">Projects</a></li>
+                    <li><a href="{{url_for("contact",title="Contact",description="Contact page, build in progress!!")}}">Contact</a></li>
+                </ul>
+            <button id="theme-toggle" class="btn btn-secondary">☀️</button>
         </div>
+
     </nav>
 
     <section class="hero" id="home">
@@ -538,6 +636,22 @@
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
+        const toggleThemeBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Load theme from localStorage
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.add('light-mode');
+            toggleThemeBtn.textContent = '🌙';
+        }
+
+        toggleThemeBtn.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            const isLight = body.classList.contains('light-mode');
+            toggleThemeBtn.textContent = isLight ? '🌙' : '☀️';
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+
     </script>
 </body>
 </html>
