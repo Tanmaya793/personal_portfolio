@@ -1,45 +1,96 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<section style="padding: 10px; font-family: Arial, sans-serif;">
-    <div>
-        <h2 style="text-decoration: underline; font-weight: bold;">Bio</h2>
-        <p>A curious and peculiarly aggresive learner, currently pursuing B.Tech under Computer Science & Engineering. Though i have been learning a lot in my journey, it's time to show those skills to the world.</p>
+<section class="info-section">
+    <div class="section-block">
+        <h2 class="section-title">Bio</h2>
+        <p class="section-text">
+            I am a passionate and relentlessly curious learner, currently pursuing a B.Tech in Computer Science & Engineering at GIET University. My journey so far has been fueled by a love for problem-solving and continuous growth. Now, I'm channeling that knowledge into real-world projects and challenges.
+        </p>
     </div>
-</section>
 
-<hr style="margin: 20px 0;">
+    <hr>
 
-<section style="padding: 10px; font-family: Arial, sans-serif;">
-    <div>
-        <h2 style="text-decoration: underline; font-weight: bold;">Education</h2>
+    <div class="section-block">
+        <h2 class="section-title">Education</h2>
 
-        <div style="margin-top: 10px;">
-            <h4 style="margin-bottom: 5px;"><b>Matriculation & Intermediate: </b></h4>
+        <div class="education-entry">
+            <h4>Matriculation & Intermediate</h4>
             <p><strong>School:</strong> Jawahar Navodaya Vidyalaya, Kalahandi</p>
             <p><strong>Years Attended:</strong> 2016 – 2023</p>
         </div>
 
-        <div style="margin-top: 20px;">
-            <h4 style="margin-bottom: 5px;"><b>Bachelor’s Degree: </b></h4>
+        <div class="education-entry">
+            <h4>Bachelor’s Degree</h4>
             <p><strong>Institution:</strong> GIET University, Gunupur</p>
             <p><strong>Years Attended:</strong> 2023 – Present</p>
         </div>
     </div>
-</section>
 
-<hr style="margin: 20px 0;">
+    <hr>
 
-<section style="padding: 10px; font-family: Arial, sans-serif;">
-    <div>
-        <h2 style="text-decoration: underline; font-weight: bold;">Achievements</h2>
-        <ul style="color: gray; font-style: italic;">
+    <div class="section-block">
+        <h2 class="section-title">Achievements</h2>
+        <ul class="section-text muted-list">
             <li>Achievements will be listed here soon.</li>
         </ul>
     </div>
 </section>
 
+<style>
+    .info-section {
+        padding: 2rem 1rem;
+        font-family: 'Inter', sans-serif;
+        max-width: 900px;
+        margin: auto;
+    }
 
+    .section-block {
+        margin-bottom: 2.5rem;
+    }
 
-{% endblock content %}
+    .section-title {
+        font-size: 2rem;
+        font-weight: 700;
+        text-decoration: underline;
+        color: #40e0d0;
+        margin-bottom: 1rem;
+    }
+
+    .section-text {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #ccc;
+    }
+
+    .education-entry {
+        margin-top: 1.5rem;
+    }
+
+    .education-entry h4 {
+        margin-bottom: 0.3rem;
+        font-size: 1.2rem;
+        color: #00d4ff;
+    }
+
+    .muted-list {
+        list-style-type: disc;
+        margin-left: 1.5rem;
+        color: #888;
+        font-style: italic;
+    }
+
+    body.light-mode .section-text,
+    body.light-mode .muted-list {
+        color: #333;
+    }
+
+    body.light-mode .section-title {
+        color: #0f4c75;
+    }
+
+    body.light-mode .education-entry h4 {
+        color: #3282b8;
+    }
+</style>
+{% endblock %}
