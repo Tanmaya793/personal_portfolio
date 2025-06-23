@@ -1,5 +1,103 @@
 {% extends "base.html" %}
-
 {% block content %}
+<section class="projects-grid">
+    <div class="project-card">
+        <h3 class="project-title">SheSecure – Women Safety Analytics</h3>
+        <p class="project-desc">
+            A women safety platform integrating Deep Learning, real-time data analytics, and web technologies for enhanced protection and reporting.
+        </p>
+        <div class="project-links">
+            <a href="https://github.com/Tanmaya793/Women-Safety.git" target="_blank">GitHub</a>
+        </div>
+    </div>
 
-{% endblock content %}
+    <div class="project-card">
+        <h3 class="project-title">Smart Notice Board</h3>
+        <p class="project-desc">
+            Flask + SQL-powered digital notice board that lets admins push updates dynamically while students access them in real-time.
+        </p>
+        <div class="project-links">
+            <a href="https://github.com/Tanmaya793/E-Notice-Board.git" target="_blank">GitHub</a>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <h3 class="project-title">Simple Calculator</h3>
+        <p class="project-desc">
+            A flask learning project that will help to understand the routes and value passing.
+        </p>
+        <div class="project-links">
+            <a href="https://github.com/Tanmaya793/small-calculator.git" target="_blank">GitHub</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .project-card {
+        background-color: #1a1a2e;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(64, 224, 208, 0.3);
+    }
+
+    .project-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #40e0d0;
+    }
+
+    .project-desc {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        color: #cccccc;
+    }
+
+    .project-links a {
+        text-decoration: none;
+        margin-right: 1rem;
+        color: #00d4ff;
+        font-weight: 500;
+        border-bottom: 1px solid transparent;
+        transition: border-bottom 0.3s ease;
+    }
+
+    .project-links a:hover {
+        border-bottom: 1px solid #00d4ff;
+    }
+
+    body.light-mode .project-card {
+        background-color: #ffffff;
+        color: #1a1a1a;
+    }
+
+    body.light-mode .project-title {
+        color: #0f4c75;
+    }
+
+    body.light-mode .project-desc {
+        color: #333333;
+    }
+
+    body.light-mode .project-links a {
+        color: #0f4c75;
+    }
+
+    body.light-mode .project-links a:hover {
+        border-bottom: 1px solid #0f4c75;
+    }
+</style>
+{% endblock %}

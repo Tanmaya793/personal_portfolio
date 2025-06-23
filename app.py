@@ -17,7 +17,7 @@ def contact():
 
 @app.route("/projects")
 def projects():
-    return render_template("projects.html", title="Projects", description="Project page, build in progress...")
+    return render_template("projects.html", title="Projects", description="")
 
 if __name__ == "__main__":
     app.run(debug=True)
