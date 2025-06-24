@@ -221,12 +221,94 @@
                 text-align: center;
             }
         }
+        .form-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 10px rgba(64, 224, 208, 0.2);
+            border: 1px solid rgba(64, 224, 208, 0.15);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border: 2px solid #40e0d0;
+            background-color: #12121f;
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-button {
+            background: linear-gradient(45deg, #40e0d0, #00d4ff);
+            color: #0f0f23;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-button:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        body.light-mode .form-wrapper {
+            background: #ffffff;
+            border: 1px solid #cccccc;
+            color: #1a1a1a;
+        }
+
+        body.light-mode .form-input,
+        body.light-mode .form-textarea {
+            background-color: #f0f0f0;
+            color: #1a1a1a;
+        }
+
+        body.light-mode .form-input:focus,
+        body.light-mode .form-textarea:focus {
+            border: 2px solid #3282b8;
+        }
+
+        body.light-mode .form-button {
+            background: linear-gradient(45deg, #0f4c75, #3282b8);
+            color: #ffffff;
+        }
+
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">TKN</a>
+            <div class="logo">TKN</div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="{{url_for('home', title='Home')}}" class="nav-link">Home</a></li>
                 <li><a href="{{url_for('about', title='About')}}" class="nav-link">About</a></li>

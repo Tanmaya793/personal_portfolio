@@ -1,5 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <div class="form-wrapper">
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.firstname.label(class="form-label") }}
+                {{ form.firstname(class="form-input") }}
+            </div>
 
-{% endblock content %}
+            <div class="form-group">
+                {{ form.lastname.label(class="form-label") }}
+                {{ form.lastname(class="form-input") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.email.label(class="form-label") }}
+                {{ form.email(class="form-input") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.message.label(class="form-label") }}
+                {{ form.message(class="form-textarea") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.submit(class="form-button") }}
+            </div>
+        </form>
+    </div>
+{% endblock %}

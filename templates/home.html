@@ -352,6 +352,48 @@
         }
     }
 
+    #menu-toggle {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 15, 35, 0.95);
+            padding: 1rem 2rem;
+            z-index: 999;
+            border-top: 1px solid rgba(64, 224, 208, 0.2);
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        #menu-toggle {
+            display: inline-block;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+    }
+
+
     /* LIGHT THEME OVERRIDES */
     body.light-mode {
         background: linear-gradient(135deg, #e6e6e6 0%, #dcdcdc 50%, #cccccc 100%);
@@ -460,6 +502,7 @@
                     <li><a href="{{url_for("contact",title="Contact",description="Contact page, build in progress!!")}}">Contact</a></li>
                 </ul>
             <button id="theme-toggle" class="btn btn-secondary">☀️</button>
+            <button id="menu-toggle" class="btn btn-secondary" style="margin-left: 1rem;">☰</button>
         </div>
 
     </nav>
@@ -558,6 +601,12 @@
             const isLight = body.classList.contains('light-mode');
             toggleThemeBtn.textContent = isLight ? '🌑' : '☀️';
             localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
 
     </script>
