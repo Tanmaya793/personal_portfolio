@@ -89,13 +89,20 @@
         }
 
         .menu-toggle {
-            display: none;
-            background: none;
+            display: none; /* visible only via media query */
+            background: transparent;
             border: none;
             color: #ffffff;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
+            margin-left: 1rem;
+            transition: transform 0.3s ease;
         }
+
+        .menu-toggle:hover {
+            transform: scale(1.1);
+        }
+
 
         /* Toggle button from yesterday */
         .btn-secondary {
@@ -198,18 +205,20 @@
 
         @media (max-width: 768px) {
             .menu-toggle {
-                display: block;
+                display: inline-block;
             }
 
             .nav-links {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 80px;
+                top: 70px;
                 left: 0;
                 background: rgba(15, 15, 35, 0.98);
                 width: 100%;
                 padding: 1rem 0;
+                z-index: 999;
+                text-align: center;
             }
 
             .nav-links.active {
@@ -218,9 +227,26 @@
 
             .nav-links li {
                 margin: 1rem 0;
-                text-align: center;
+            }
+
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
             }
         }
+
+        .menu-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+
+
         .form-wrapper {
             max-width: 600px;
             margin: 0 auto;
@@ -315,7 +341,7 @@
                 <li><a href="{{url_for('projects', title='Projects')}}" class="nav-link">Projects</a></li>
                 <li><a href="{{url_for('contact', title='Contact')}}" class="nav-link">Contact</a></li>
             </ul>
-            <div>
+            <div class="nav-actions">
                 <button id="theme-toggle" class="btn btn-secondary">☀️</button>
                 <button class="menu-toggle" id="menu-toggle">☰</button>
             </div>
