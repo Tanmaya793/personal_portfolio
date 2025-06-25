@@ -14,14 +14,15 @@ def home():
 def about():
     return render_template("about.html", title="About Me")
 
-@app.route("/contact", methods=["GET","POST"])
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
     form = Contact()
     if form.validate_on_submit():
         add_message(form.firstname.data, form.lastname.data, form.email.data, form.message.data)
-        flash("Your message has been succesfully sent, Thanks you!")
-        return render_template("contact.html",title="Contact Me", form=form)
-    return render_template("contact.html",title="Contact Me", form=form)
+        flash("Your message has been successfully sent, Thank you!")
+        return redirect(url_for("contact")) # PRG pattern (Post-Redirect-Get)
+    return render_template("contact.html", title="Contact Me", form=form)
+
 
 @app.route("/admin/<pas>")
 def admin(pas):
