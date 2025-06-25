@@ -4,17 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{Admin}}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+        .card h3 {
+            color: #2a2a2a;
+            margin-bottom: 8px;
+        }
+
+        .card h4 {
+            color: #555;
+            margin: 4px 0;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 28px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    {% if messages %}
-        {% for email,data in messages.items() %}
-            <div>
-                <h3>Email: {{email}}</h3>
-                <h4>Firstname: {{data["firstname"]}}</h4>
-                <h4>Lastname: {{data["lastname"]}}</h4>
-                <h4>Message: {{data["message"]}}</h4>
-            </div>
-        {% endfor %}
-    {% endif %}
+    <div class="container">
+        <div class="title">{{ Admin }}</div>
+        {% if messages %}
+            {% for email, data in messages.items() %}
+                <div class="card">
+                    <h3>Email: {{ email }}</h3>
+                    <h4>Firstname: {{ data["firstname"] }}</h4>
+                    <h4>Lastname: {{ data["lastname"] }}</h4>
+                    <h4>Message: {{ data["message"] }}</h4>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p style="text-align: center; color: #888;">No messages available.</p>
+        {% endif %}
+    </div>
 </body>
 </html>
