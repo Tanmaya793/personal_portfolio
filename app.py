@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, flash
+from flask import Flask, render_template, url_for, flash, redirect
 from forms import Contact
 from datas import messages, add_message
 
@@ -23,9 +23,11 @@ def contact():
         return render_template("contact.html",title="Contact Me", form=form)
     return render_template("contact.html",title="Contact Me", form=form)
 
-@app.route("/admin")
-def admin():
-    return render_template("admin.html", messages=messages)
+@app.route("/admin",<pas>)
+def admin(pas):
+    if pas=="mysecretpass":
+        return render_template("admin.html", messages=messages)
+    return redirect(url_for("home"))
 
 @app.route("/projects")
 def projects():
