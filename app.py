@@ -23,7 +23,7 @@ def contact():
         return render_template("contact.html",title="Contact Me", form=form)
     return render_template("contact.html",title="Contact Me", form=form)
 
-@app.route("/admin",<pas>)
+@app.route("/admin"/<pas>)
 def admin(pas):
     if pas=="mysecretpass":
         return render_template("admin.html", messages=messages)
