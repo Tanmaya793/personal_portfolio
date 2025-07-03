@@ -3,10 +3,11 @@ from forms import Contact
 # from datas import messages, add_message
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import select, engine
+import os
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "5d50c38d0f12ca64cddd64b56c7baeab"
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:tana9861751892%40@localhost:3306/portfolio"
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "fallback-secret-key")
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
