@@ -58,12 +58,12 @@
     <div class="container">
         <div class="title">{{ Admin }}</div>
         {% if messages %}
-            {% for email, data in messages.items() %}
+            {% for row in messages %}
                 <div class="card">
-                    <h3>Email: {{ email }}</h3>
-                    <h4>Firstname: {{ data["firstname"] }}</h4>
-                    <h4>Lastname: {{ data["lastname"] }}</h4>
-                    <h4>Message: {{ data["message"] }}</h4>
+                    <h3>Email: {{ row.email }}</h3>
+                    <h4>Firstname: {{ row.firstname }}</h4>
+                    <h4>Lastname: {{ row.lastname }}</h4>
+                    <h4>Message: {{ row.message }}</h4>
                 </div>
             {% endfor %}
         {% else %}
