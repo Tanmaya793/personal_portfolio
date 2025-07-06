@@ -49,7 +49,6 @@ def contact():
 def admin(pas):
     if pas == "mysecretpass":
         messages = Messages.query.all() 
-        print(messages)
         return render_template("admin.html", messages=messages) 
     return redirect(url_for("home")) 
 
